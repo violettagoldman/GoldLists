@@ -1,0 +1,84 @@
+#page {
+    padding: 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: auto;
+}
+
+#add-button {
+    margin: 20px auto 0px auto;
+}
+
+#text {
+  white-space: pre-line;
+  max-width: 500px;
+  margin: auto;
+}
+
+h1 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 50%;
+}
+
+h3 {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  text-align: center;
+  max-width: 700px;
+}
+
+li {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+li > span {
+  font-size: 1.2em;
+}
+
+@media (max-width: 1000px) {
+  #two-forms {
+    flex-direction: column;
+  }
+}
+
+.modal .content h4 {
+  color: black;
+  font-size: 1em;
+}
+
+.modal .content select {
+  width: 100%;
+  font-size: 1em;
+  background: none;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid #AAA;
+}
+
+#two-forms {
+  display: flex;
+}
+
+#two-forms > div {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+#two-forms > div:nth-child(2) {
+  width: auto;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal .content button {
+  display: block;
+  margin: 20px auto 0px auto;
+}
