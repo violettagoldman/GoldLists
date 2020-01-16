@@ -56,7 +56,7 @@ $folders_to_remove = ["Deleted"];
                 <button type="button" name="button" onclick="document.location.href='./lists.php?folder=<?php echo $_GET['callback']; ?>'">
                     <i class="fas fa-arrow-left"></i>
                 </button>
-                <h1 contenteditable="true"><?php echo $list->title; ?></h1>
+                <h1 contenteditable="true"><?php echo htmlspecialchars($list->title); ?></h1>
                 <div class="action-buttons">
                   <button type="button" onclick="open_modal()">
                       <i class="far fa-folder"></i>
@@ -74,13 +74,13 @@ $folders_to_remove = ["Deleted"];
         </nav>
         <div class="scrollable-area">
         <div id="page">
-            <h3 contenteditable="true"><?php echo $list->subtitle ?></h3>
-            <p id="text" contenteditable="true"><?php echo $list->text; ?></p>
+            <h3 contenteditable="true"><?php echo htmlspecialchars($list->subtitle); ?></h3>
+            <p id="text" contenteditable="true"><?php echo htmlspecialchars($list->text); ?></p>
             <?php if (strlen($list->text) > 0 && count(json_decode($list->checkboxes)) > 0) { ?>
             <div id="separator"></div> <?php } ?>
             <ul class="task-list">
                 <?php foreach (json_decode($list->checkboxes) as $checkbox) { ?>
-                    <li <?php if ($checkbox->checked) { ?> class="done" <?php } ?>><div class="checkbox"></div><span contenteditable="true"><?php echo $checkbox->label; ?></span><i class="fas fa-times" onclick="delete_task(this)"></i></li>
+                    <li <?php if ($checkbox->checked) { ?> class="done" <?php } ?>><div class="checkbox"></div><span contenteditable="true"><?php echo htmlspecialchars($checkbox->label); ?></span><i class="fas fa-times" onclick="delete_task(this)"></i></li>
                 <?php } ?>
             </ul>
             <button id="add-button" onclick="add_task()"><i class="fas fa-plus"></i>Add task</button>

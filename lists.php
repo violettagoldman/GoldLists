@@ -89,14 +89,14 @@ $lists = json_decode(json_decode(file_get_contents($url))->message);
                 foreach ($lists as $list) {
                  ?>
                 <div class="list" onclick="document.location.href='./list.php?id=<?php echo $list->id; ?>&callback=<?php echo $folder; ?>';">
-                    <h3><?php echo $list->title;?></h3>
-                    <h5><?php echo $list->subtitle;?></h5>
-                    <p><?php echo $list->text;?></p>
+                    <h3><?php echo htmlspecialchars($list->title);?></h3>
+                    <h5><?php echo htmlspecialchars($list->subtitle);?></h5>
+                    <p><?php echo htmlspecialchars($list->text);?></p>
                     <?php if (strlen($list->text) > 0 && count(json_decode($list->checkboxes)) > 0) { ?>
                     <div id="separator"></div> <?php } ?>
                     <ul class="task-list">
                         <?php foreach (max_array(json_decode($list->checkboxes), 5) as $checkbox) { ?>
-                            <li <?php if ($checkbox->checked) { ?> class="done" <?php } ?>><div class="checkbox"></div><?php echo $checkbox->label; ?></li>
+                            <li <?php if ($checkbox->checked) { ?> class="done" <?php } ?>><div class="checkbox"></div><?php echo htmlspecialchars($checkbox->label); ?></li>
                         <?php } ?>
                         <?php if (count(json_decode($list->checkboxes)) > 5) { ?>
                         <li class="more-items"><span><?php echo count(json_decode($list->checkboxes)) - 5; ?> more items...</span></li>
